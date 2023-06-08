@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        const onCLickChange = () => {
+            let data = fetch("https://official-joke-api.appspot.com/random_joke");
+            data.then((result) => {
+                result.json().then((res) => {
+                  document.write(`setup : ${res.setup} , punchline: ${res.punchline}`);
+                })
+            }).catch((error)=>{
+                console.log(error);
+            })
+        }
+
+    </script>
+    <title>Document</title>
+    <style>
+        #container {  
+            margin-left: 30%;
+            width: 300px;  
+            height: 300px;
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            }  
+            button {  
+            background-color: rgb(3, 112, 148);  
+            color: rgb(236, 231, 231);  
+            font-size: 25px;  
+            } 
+        .head{
+            margin-right: 20%;
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+        }    
+    </style>
+
+</head>
+
+<body>
+
+</body>
+<div class="head">
+    <h1>JOKES</h1>
+</div>
+<div id="container">
+    <button type="button" onclick="onCLickChange()">Generate Joke</button>
+</div>
+
+</html>
